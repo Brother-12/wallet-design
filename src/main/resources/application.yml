@@ -1,0 +1,11 @@
+server:
+  port: 10000
+spring:
+  application:
+    name: wallet-test
+  datasource:
+    druid:
+      url: jdbc:mysql://localhost:3306/test?character_encoding=utf-8
+      username: root
+      password: 123456
+      driver-class-name: com.jdbc.mysql.Driver
