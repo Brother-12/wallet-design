@@ -26,5 +26,5 @@ public interface UserWalletService {
      * @param bigDecimal 退款金额
      * @return 退款结果
      */
-    public Integer amountRefund(User user,BigDecimal bigDecimal);
+    Integer amountRefund(User user,BigDecimal bigDecimal);
 }

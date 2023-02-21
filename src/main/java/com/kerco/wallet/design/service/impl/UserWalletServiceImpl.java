@@ -53,8 +53,8 @@ public class UserWalletServiceImpl implements UserWalletService {
         }
         //获取当前用户的金额
         BigDecimal userAmount = userWallet.getAmount();
-        //如果当前金额比消费金额 多 或者 相等
-        if(amount.compareTo(userAmount) >= 0){
+        //如果当前用户的金额比消费金额 多或者相等
+        if(userAmount.compareTo(amount) >= 0){
             int consumeResult = userWalletMapper.AmountConsume(user.getId(), amount);
 
             //生成订单信息以及其他处理....
@@ -75,6 +75,7 @@ public class UserWalletServiceImpl implements UserWalletService {
      * @return 退款结果
      */
     @Transactional
+    @Override
     public Integer amountRefund(User user,BigDecimal amount){
         //验证订单状态、是否有发起，是否已经支付....
         UserWallet userWallet = userWalletMapper.getUserWallet(user.getId());
